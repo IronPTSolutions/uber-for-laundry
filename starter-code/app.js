@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 
 const index = require('./routes/index.routes');
+const auth = require('./routes/auth.routes');
 const users = require('./routes/users.routes');
 
 const app = express();
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/', index);
+app.use('/', auth);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

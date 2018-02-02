@@ -1,6 +1,6 @@
 <h2> Sign Up </h2>
 
-<% if (errorMessage) { %>
+<% if (typeof(errorMessage) !== 'undefined' && errorMessage) { %>
   <p class="error-message">
     <%= errorMessage %>
   </p>
