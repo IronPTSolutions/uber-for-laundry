@@ -64,10 +64,16 @@ module.exports.doLogin = (req, res, next) => {
           if (error) {
             next(error);
           } else {
+            req.flash('welcome', `Welcome back ${user.email}`);
             res.redirect('/');
           }
         });
       }
     })(req, res, next);
   }
+}
+
+module.exports.logout = (req, res, next) => {
+  req.logout();
+  res.redirect('/login');
 }

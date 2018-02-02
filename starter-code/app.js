@@ -9,6 +9,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const mongoose = require('mongoose');
+const flash = require('connect-flash');
 
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
@@ -32,6 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 app.use(session({
   secret: process.env.COOKIE_SECRET || 'SuperSecret',
   resave: true,
@@ -51,6 +53,7 @@ app.use(passport.session());
 app.use((req, res, next) => {
   res.locals.title = 'Uber for Laundry';
   res.locals.session = req.user || {};
+  res.locals.flash = req.flash() || {};
   next();
 })
 
