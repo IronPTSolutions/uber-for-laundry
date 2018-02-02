@@ -10,22 +10,31 @@
   <div>
     <label for="name-input"> Name </label>
     <input type="text" name="name" id="name-input"
-      placeholder="e.g., Diana Prince">
+      placeholder="e.g., Diana Prince" value="<%= typeof user != 'undefined' && user.name ? user.name : '' %>">
+    <% if (typeof(error) != 'undefined' && error.name) { %>
+      <label class="control-label"> <%= error.name %> </label>
+    <% } %>
   </div>
 
   <div>
     <label for="email-input"> Email </label>
     <input type="email" name="email" id="email-input"
-      placeholder="e.g., diana@themyscira.agency">
+      placeholder="e.g., diana@themyscira.agency" value="<%= typeof user != 'undefined' && user.email ? user.email : '' %>">
+    <% if (typeof(error) != 'undefined' && error.email) { %>
+      <label class="control-label"> <%= error.email %> </label>
+    <% } %>
   </div>
 
   <div>
     <label for="password-input"> Password </label>
     <input type="password" name="password" id="password-input"
       placeholder="e.g., ••••••••••••">
+    <% if (typeof(error) != 'undefined' && error.password) { %>
+      <label class="control-label"> <%= error.password %> </label>
+    <% } %>
   </div>
 
-  <button> Create New Account </button>
+  <button type="submit"> Create New Account </button>
 </form>
 
 <p>

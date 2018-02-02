@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 
+require('./configs/db.config');
+
 const index = require('./routes/index.routes');
 const auth = require('./routes/auth.routes');
 const users = require('./routes/users.routes');
