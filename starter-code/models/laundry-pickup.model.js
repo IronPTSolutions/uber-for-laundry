@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const laundryPickupSchema = new Schema({
-  pickupDate: Date,
+  date: Date,
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   launderer: { type: Schema.Types.ObjectId, ref: 'User' }
 });

@@ -13,16 +13,13 @@
   <i> <%= theLaunderer.name %> </i>
 </h3>
 
-<form action="/laundry-pickups" method="post">
+<form action="/launderers/<%= theLaunderer._id %>/schedule-pickup" method="post">
   <div>
     <label for="pickup-date-input">
       When would you like your laundry picked up?
     </label>
-    <input type="date" name="pickupDate" id="pickup-date-input">
+    <input type="date" name="date" id="pickup-date-input">
   </div>
-
-  <input type="hidden" name="laundererId" value="<%= theLaunderer._id %>">
-
   <button> Schedule This Pickup </button>
 </form>
 
