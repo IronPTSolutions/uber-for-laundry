@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "DEBUG=starter-code:* nodemon ./bin/www"
+    "dev": "DEBUG=starter-code:* nodemon ./bin/www",
+    "deploy": "git subtree push --prefix starter-code heroku master"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
