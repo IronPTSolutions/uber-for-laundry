@@ -3,7 +3,21 @@ const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
 module.exports.dashboard = (req, res, next) => {
-  res.render('laundry/dashboard');
+
+  const criteria = req.user.isLaunderer ? 
+    { launderer: req.user._id } :
+    { user: req.user._id };
+  
+  LaundryPickup.find()
+    .populate('user')
+    .populate('launderer')
+    .sort('date')
+    .then(pickups => {
+      res.render('laundry/dashboard', {
+        pickups: pickups
+      });      
+    })
+    .catch(error => next(error));
 };
 
 module.exports.launders = (req, res, next) => {

@@ -23,3 +23,18 @@
     <button> Become a Launderer </button>
   </form>
 <% } %>
+
+<h3> Pending Pickups </h3>
+
+<ul>
+  <% pickups.forEach((pickup) => { %>
+    <li>
+      <h4> <%= pickup.date %> </h4>
+
+      <ul>
+        <li> <b>User</b>: <%= pickup.user.name %> </li>
+        <li> <b>Launderer</b>: <%= pickup.launderer.name %> </li>
+      </ul>
+    </li>
+  <% }) %>
+</ul>
